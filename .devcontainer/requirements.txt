@@ -1,0 +1,9 @@
+panel
+holoviews
+bokeh
+hvplot
+param
+mypy
+pytest
+black
+ruff

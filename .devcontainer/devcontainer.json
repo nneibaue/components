@@ -1,0 +1,31 @@
+{
+  "name": "Python HoloViz Panel Dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "charliermarsh.ruff",
+        "ms-python.debugpy",
+        "ms-toolsai.jupyter",
+        "redhat.vscode-yaml",
+        "GitHub.copilot",
+        "GitHub.copilot-labs",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true
+        },
+        "python.analysis.typeCheckingMode": "strict"
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
