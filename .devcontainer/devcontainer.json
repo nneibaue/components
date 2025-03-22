@@ -1,15 +1,15 @@
 {
-  "name": "Python HoloViz Panel Dev",
+  "name": "Robot parts dev",
   "build": {
     "dockerfile": "Dockerfile"
   },
   "mounts": [
     "source=/home/${localEnv:USER}/.ssh,target=/home/vscode/.ssh,type=bind"
   ],
+  "containerEnv": {
+    "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}"
+  },
   "customizations": {
-    "mounts": [
-      "source=/home/${localEnv:USER}/code,target=/home/vscode/all_the_codes,type=bind"
-    ],
     "vscode": {
       "extensions": [
         "ms-python.python",
@@ -19,6 +19,7 @@
         "ms-python.debugpy",
         "ms-python.mypy-type-checker",
         "ms-toolsai.jupyter",
+        "tamasfe.even-better-toml",
         "redhat.vscode-yaml",
         "GitHub.copilot",
         "GitHub.copilot-labs",
@@ -28,12 +29,12 @@
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-          "source.fixAll": true
+          "source.fixAll": "always"
         },
-        "python.analysis.typeCheckingMode": "standard",
-        // Mount the local ssh directory to allow SSH access to the container
+        "python.analysis.typeCheckingMode": "standard"
       }
     }
   },
+  "postStartCommand": "sudo pip install -e .[dev]",
   "remoteUser": "vscode"
 }
