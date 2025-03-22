@@ -3,7 +3,13 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "mounts": [
+    "source=/home/${localEnv:USER}/.ssh,target=/home/vscode/.ssh,type=bind"
+  ],
   "customizations": {
+    "mounts": [
+      "source=/home/${localEnv:USER}/code,target=/home/vscode/all_the_codes,type=bind"
+    ],
     "vscode": {
       "extensions": [
         "ms-python.python",
@@ -11,6 +17,7 @@
         "ms-python.black-formatter",
         "charliermarsh.ruff",
         "ms-python.debugpy",
+        "ms-python.mypy-type-checker",
         "ms-toolsai.jupyter",
         "redhat.vscode-yaml",
         "GitHub.copilot",
@@ -23,7 +30,8 @@
         "editor.codeActionsOnSave": {
           "source.fixAll": true
         },
-        "python.analysis.typeCheckingMode": "strict"
+        "python.analysis.typeCheckingMode": "standard",
+        // Mount the local ssh directory to allow SSH access to the container
       }
     }
   },
